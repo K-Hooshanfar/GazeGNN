@@ -78,7 +78,7 @@ class dataset(Dataset):
         label = self.labelsdict[imgpath.split("/")[-2]]
 
         # extract gaze
-        id = imgpath.split("\\")[-1].split(".jpg")[0]
+        id = imgpath.split("/")[-1].split(".jpg")[0]
         gaze = np.zeros((img.size[1], img.size[0]), dtype=np.float32)
         idcsv = self.csv.loc[self.csv["DICOM_ID"] == id]
         for i in range(len(idcsv)):
